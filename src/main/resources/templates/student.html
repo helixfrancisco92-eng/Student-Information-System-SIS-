@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IHSIS Student Home</title>
+  <style>
+    :root {
+      --ink: #0f0f0f;
+      --muted: #d9d9d9;
+      --panel: #d7d7d7;
+      --line: #1d1d1d;
+      --brand: #8d4b4b;
+      --brand-dark: #8f2e2e;
+      --blue: #1768ad;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #ffffff;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    .app-shell {
+      width: min(100%, 920px);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 26px 40px 48px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 28px;
+      min-height: 36px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 16px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 39px;
+      height: 35px;
+      background: var(--muted);
+      display: inline-block;
+      flex: 0 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .nav a {
+      color: #111;
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border-bottom: 2px solid transparent;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav a.active {
+      border-bottom-color: #111;
+    }
+
+    .account-menu {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      width: 42px;
+      height: 30px;
+      border: 0;
+      background: transparent;
+      color: #111;
+      cursor: pointer;
+    }
+
+    .account-menu svg {
+      display: block;
+    }
+
+    .account-menu .user-icon {
+      color: var(--blue);
+    }
+
+    main {
+      padding-top: 34px;
+    }
+
+    .page-title {
+      margin: 0 0 7px 18px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .home-panel {
+      width: min(100%, 778px);
+      min-height: 323px;
+      margin-left: 41px;
+      background: var(--panel);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .panel-header {
+      height: 47px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      padding-left: 23px;
+    }
+
+    .header-pill {
+      width: min(332px, 52vw);
+      height: 18px;
+      background: var(--brand);
+      border-radius: 6px;
+    }
+
+    .panel-body {
+      padding: 16px 29px 52px;
+    }
+
+    .summary-strip {
+      min-height: 99px;
+      background: #ffffff;
+      border-radius: 6px;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      align-items: center;
+      gap: 24px;
+      padding: 20px 26px;
+      margin-bottom: 16px;
+    }
+
+    .document-tile {
+      width: 60px;
+      height: 59px;
+      border-radius: 7px;
+      background: var(--brand-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+
+    .summary-line {
+      width: min(332px, 100%);
+      height: 18px;
+      background: var(--brand);
+      border-radius: 6px;
+    }
+
+    .task-list {
+      background: #ffffff;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .task-row {
+      min-height: 32px;
+      display: grid;
+      grid-template-columns: 27px 1fr;
+      align-items: center;
+      padding: 0 9px;
+      border-bottom: 1px solid var(--line);
+      color: #1d1d1d;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .task-row:last-child {
+      border-bottom: 0;
+    }
+
+    .task-row svg {
+      color: #050505;
+    }
+
+    .task-row:hover {
+      background: #f4f4f4;
+    }
+
+    @media (max-width: 760px) {
+      .app-shell {
+        padding: 20px 18px 36px;
+      }
+
+      .topbar {
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+      }
+
+      .nav {
+        grid-column: 1 / -1;
+        order: 3;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      main {
+        padding-top: 24px;
+      }
+
+      .page-title {
+        margin-left: 0;
+      }
+
+      .home-panel {
+        width: 100%;
+        min-height: 300px;
+        margin-left: 0;
+      }
+
+      .panel-body {
+        padding: 16px;
+      }
+
+      .summary-strip {
+        grid-template-columns: 60px 1fr;
+        gap: 18px;
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .brand {
+        gap: 12px;
+      }
+
+      .summary-strip {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" aria-label="Student portal header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>IHSIS</span>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="active" href="/student">Home</a>
+        <a href="/student/enrollment">Enrollment</a>
+        <a href="/accounts">Accounts</a>
+        <a href="/student/schedule">Schedule</a>
+        <a href="/student/grades">Grades</a>
+        <a href="/forms">Forms</a>
+        <a href="/hdf">HDF</a>
+      </nav>
+
+      <button class="account-menu" type="button" aria-label="Open account menu">
+        <svg class="user-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4Zm0 2c-3.31 0-6 1.79-6 4v1h12v-1c0-2.21-2.69-4-6-4Z" />
+        </svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+    </header>
+
+    <main>
+      <h1 class="page-title">Home</h1>
+
+      <section class="home-panel" aria-label="Student home">
+        <div class="panel-header">
+          <div class="header-pill" aria-hidden="true"></div>
+        </div>
+
+        <div class="panel-body">
+          <section class="summary-strip" aria-label="Student document summary">
+            <div class="document-tile" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 3h7l4 4v14H7z" />
+                <path d="M14 3v5h5" />
+                <path d="M9.5 11h6" />
+                <path d="M9.5 14h6" />
+                <path d="M9.5 17h4" />
+                <path d="M5 6v15h12" />
+              </svg>
+            </div>
+            <div class="summary-line" aria-hidden="true"></div>
+          </section>
+
+          <div class="task-list" aria-label="Student actions">
+            <a class="task-row" href="/student/inbox">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12v7h16v-7" />
+                <path d="M4 12 7 5h10l3 7" />
+                <path d="M4 12h5l2 3h2l2-3h5" />
+              </svg>
+              <span>Inbox (3)</span>
+            </a>
+            <a class="task-row" href="/student/graduation-clearance">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6 3h12v18l-6-3-6 3V3Z" />
+              </svg>
+              <span>Graduation Clearance</span>
+            </a>
+            <a class="task-row" href="/student/feedback">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 4C7.03 4 3 7.13 3 11c0 2.2 1.31 4.16 3.36 5.45L5.5 20l4.02-2.14c.79.09 1.62.14 2.48.14 4.97 0 9-3.13 9-7s-4.03-7-9-7Z" />
+              </svg>
+              <span>Submit Feedback</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

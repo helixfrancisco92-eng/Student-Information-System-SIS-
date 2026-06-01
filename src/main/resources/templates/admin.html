@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .portal-wrap {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      gap: 16px;
+    }
+    .portal-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: #3a2a2a;
+      background: #e8e5e5;
+      border: 1px solid #cec8c8;
+      border-radius: 6px;
+      padding: 6px 16px;
+    }
+    .portal-title {
+      font-size: 36px;
+      font-weight: 400;
+      color: #1a1a1a;
+      letter-spacing: -0.5px;
+    }
+    .portal-sub {
+      font-size: 15px;
+      color: #777;
+    }
+    .back-btn {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: 1px solid #e8cac3;
+      background: #f7ece9;
+      color: #5a2020;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      text-decoration: none;
+    }
+    .back-btn:hover { opacity: 0.8; }
+  </style>
+</head>
+<body>
+  <div class="portal-wrap">
+    <span class="portal-label">ADMIN</span>
+    <h1 class="portal-title">Admin Portal</h1>
+    <p class="portal-sub">Your dashboard goes here.</p>
+    <a href="index.html" class="back-btn">&#8592; Back to Welcome</a>
+  </div>
+</body>
+</html>

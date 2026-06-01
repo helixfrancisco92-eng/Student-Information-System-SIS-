@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-wrap {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.blob {
+  position: absolute;
+  background: #6d3535;
+  border-radius: 50%;
+}
+
+.blob.tl1 { width: 280px; height: 260px; top: -110px; left: -50px; }
+.blob.tl2 { width: 230px; height: 210px; top: -80px; left: 160px; }
+.blob.tr1 { width: 260px; height: 240px; top: -90px; right: -40px; }
+.blob.tr2 { width: 200px; height: 190px; top: -55px; right: 170px; }
+.blob.bl1 { width: 260px; height: 240px; bottom: -100px; left: -50px; }
+.blob.bl2 { width: 200px; height: 200px; bottom: -75px; left: 160px; }
+.blob.br1 { width: 280px; height: 260px; bottom: -100px; right: -40px; }
+.blob.br2 { width: 200px; height: 200px; bottom: -75px; right: 170px; }
+
+.center-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 64px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 36px;
+  letter-spacing: -1px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.role-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+  min-width: 160px;
+  justify-content: center;
+}
+
+.role-btn:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+.role-btn:active {
+  transform: scale(0.98);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.btn-student {
+  background: #f7ece9;
+  color: #5a2020;
+  border-color: #e8cac3;
+}
+
+.btn-admin {
+  background: #e8e5e5;
+  color: #3a2a2a;
+  border-color: #cec8c8;
+}
+
+@media (max-width: 480px) {
+  .welcome-title { font-size: 42px; }
+  .btn-row { flex-direction: column; align-items: center; }
+  .role-btn { width: 200px; }
+  .blob.tl1 { width: 180px; height: 160px; top: -70px; left: -30px; }
+  .blob.tl2 { width: 140px; height: 130px; top: -50px; left: 100px; }
+  .blob.tr1 { width: 160px; height: 150px; top: -55px; right: -25px; }
+  .blob.tr2 { width: 130px; height: 120px; top: -35px; right: 105px; }
+  .blob.bl1 { width: 170px; height: 160px; bottom: -65px; left: -30px; }
+  .blob.bl2 { width: 130px; height: 130px; bottom: -50px; left: 100px; }
+  .blob.br1 { width: 180px; height: 160px; bottom: -65px; right: -25px; }
+  .blob.br2 { width: 130px; height: 130px; bottom: -50px; right: 105px; }
+}
